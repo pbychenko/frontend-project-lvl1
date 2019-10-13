@@ -10,3 +10,15 @@ export const getNod = (a, b) => {
     }
     return a + b;
 };
+export const getProgression = (start , step) => {
+  let progressionList = [];
+  for (let i = 0; i < 10; i += 1) {
+      progressionList[i] = start + step * i;
+  }   
+  return progressionList; 
+};
+
+export const getProgForGame = (list, place) => {
+  list[place] = '..';
+  return list.join(' ');
+};
