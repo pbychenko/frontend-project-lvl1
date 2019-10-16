@@ -1,8 +1,12 @@
 {
-  "name": "frontend-project-lvl1",
+  "name": "frontend-project-lvl1-bpv",
   "version": "1.0.0",
   "description": "first project",
   "main": "",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/pbychenko/frontend-project-lvl1.git"
+  },
   "author": "pbychenko",
   "license": "ISC",
   "bin": {
