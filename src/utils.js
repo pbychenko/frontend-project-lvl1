@@ -22,3 +22,20 @@ export const getProgForGame = (list, place) => {
   list[place] = '..';
   return list.join(' ');
 };
+
+export const isPrime = (number) => {
+  if (number === 0) {
+    return false;
+  }
+
+  if (number < 4) {
+    return true;
+  }
+
+  for (let i = 2; i < number; i += 1) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+  return true;
+};
