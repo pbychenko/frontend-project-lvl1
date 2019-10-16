@@ -9,7 +9,7 @@ const levelFlow = () => {
     let number = getRandomInt(MAX);
     console.log('Question: ' + number);
     let answer = readlineSync.question('Your answer: ');
-    let correctAnswer = isPrime(number) ? 'yes': 'no';
+    let correctAnswer = isPrime() ? 'yes': 'no';
 
     return {answer, correctAnswer};  
 };
