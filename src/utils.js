@@ -1,4 +1,5 @@
 export const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
+export const max = 10;
 export const getNod = (a, b) => {
   let x = a;
   let y = b;
@@ -13,7 +14,7 @@ export const getNod = (a, b) => {
 };
 export const getProgression = (start, step) => {
   const progressionList = [];
-  for (let i = 0; i < 10; i += 1) {
+  for (let i = 0; i < max; i += 1) {
     progressionList[i] = start + step * i;
   }
   return progressionList;

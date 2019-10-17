@@ -1,7 +1,11 @@
 {
   "name": "frontend-project-lvl1-bpv",
   "version": "1.0.0",
-  "description": "first project",
+  "description": "Hexlet FE project 1",
+  "keywords": [
+    "hexlet",
+    "brain-games"
+  ],
   "main": "",
   "repository": {
     "type": "git",
