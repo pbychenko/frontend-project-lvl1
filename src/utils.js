@@ -1,26 +1,28 @@
 export const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
 export const getNod = (a, b) => {
-    while (a!== 0 && b !== 0) {
-      if (a > b) {
-        a = a % b;
-      } else {
-        b = b % a;
-      }
-  
+  let x = a;
+  let y = b;
+  while (x !== 0 && y !== 0) {
+    if (x > y) {
+      x %= y;
+    } else {
+      y %= x;
     }
-    return a + b;
+  }
+  return x + y;
 };
-export const getProgression = (start , step) => {
-  let progressionList = [];
+export const getProgression = (start, step) => {
+  const progressionList = [];
   for (let i = 0; i < 10; i += 1) {
-      progressionList[i] = start + step * i;
-  }   
-  return progressionList; 
+    progressionList[i] = start + step * i;
+  }
+  return progressionList;
 };
 
 export const getProgForGame = (list, place) => {
-  list[place] = '..';
-  return list.join(' ');
+  const buff = list.slice();
+  buff[place] = '..';
+  return buff.join(' ');
 };
 
 export const isPrime = (number) => {
