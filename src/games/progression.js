@@ -1,13 +1,13 @@
 import readlineSync from 'readline-sync';
 import {
-  getRandomInt, getProgression, getProgForGame, max,
+  getRandomInt, getProgression, getProgForGame, max, min,
 } from '../utils';
 import common from '..';
 
 const levelFlow = () => {
-  const start = getRandomInt(max);
-  const step = getRandomInt(max);
-  const askProgNumber = getRandomInt(max - 1);
+  const start = getRandomInt(min, max);
+  const step = getRandomInt(min, max);
+  const askProgNumber = getRandomInt(min, max - 1);
   const progression = getProgression(start, step);
 
   console.log(`Question:  ${getProgForGame(progression, askProgNumber)}`);

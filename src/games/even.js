@@ -1,9 +1,9 @@
 import readlineSync from 'readline-sync';
-import { getRandomInt, max } from '../utils';
+import { getRandomInt, max, min } from '../utils';
 import common from '..';
 
 const levelFlow = () => {
-  const number = getRandomInt(max);
+  const number = getRandomInt(min, max);
   console.log(`Question: ${number}`);
 
   const answer = readlineSync.question('Your answer: ');

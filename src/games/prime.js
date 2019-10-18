@@ -1,9 +1,11 @@
 import readlineSync from 'readline-sync';
-import { getRandomInt, isPrime, max } from '../utils';
+import {
+  getRandomInt, isPrime, max, min,
+} from '../utils';
 import common from '..';
 
 const levelFlow = () => {
-  const number = getRandomInt(max);
+  const number = getRandomInt(min, max);
   console.log(`Question: ${number}`);
   const answer = readlineSync.question('Your answer: ');
   const correctAnswer = isPrime(number) ? 'yes' : 'no';
