@@ -6,7 +6,7 @@
 
 ### Install
 
-```$ npm link linay-brain-games```
+```$ npm link```
 
 <a href="https://asciinema.org/a/KXfsXRfWju1exY2lPD9WppWZH" target="_blank"><img src="https://asciinema.org/a/KXfsXRfWju1exY2lPD9WppWZH.svg" /></a>
 
