@@ -1,19 +1,18 @@
-import readlineSync from 'readline-sync';
 import { getRandomInt, max, min } from '../utils';
-import common from '..';
+import runApp from '..';
 
-const levelFlow = () => {
-  const number = getRandomInt(min, max);
-  console.log(`Question: ${number}`);
+const descGame = 'Answer "yes" if the number is even, otherwise answer "no".';
+const isEven = (number) => (number % 2 === 0 ? 'yes' : 'no');
 
-  const answer = readlineSync.question('Your answer: ');
-  const correctAnswer = number % 2 === 0 ? 'yes' : 'no';
+const runGameRound = () => {
+  const question = getRandomInt(min, max);
+  const correctAnswer = isEven(question);
 
-  return { answer, correctAnswer };
+  return { question, correctAnswer };
 };
 
 const runGame = () => {
-  common('Answer "yes" if the number is even, otherwise answer "no".', levelFlow);
+  runApp(descGame, runGameRound);
 };
 
 export default runGame;

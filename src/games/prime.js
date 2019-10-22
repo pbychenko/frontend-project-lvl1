@@ -1,20 +1,30 @@
-import readlineSync from 'readline-sync';
-import {
-  getRandomInt, isPrime, max, min,
-} from '../utils';
-import common from '..';
+import { getRandomInt, max, min } from '../utils';
+import runApp from '..';
 
-const levelFlow = () => {
-  const number = getRandomInt(min, max);
-  console.log(`Question: ${number}`);
-  const answer = readlineSync.question('Your answer: ');
-  const correctAnswer = isPrime(number) ? 'yes' : 'no';
+const descGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-  return { answer, correctAnswer };
+const isPrime = (number) => {
+  if (number < 4) {
+    return true;
+  }
+
+  for (let i = 2; i <= Math.sqrt(number); i += 1) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+  return true;
+};
+
+const runGameRound = () => {
+  const question = getRandomInt(min, max);
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
+
+  return { question, correctAnswer };
 };
 
 const runGame = () => {
-  common('Answer "yes" if given number is prime. Otherwise answer "no".', levelFlow);
+  runApp(descGame, runGameRound);
 };
 
 export default runGame;

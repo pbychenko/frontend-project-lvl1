@@ -1,15 +1,19 @@
 import readlineSync from 'readline-sync';
 
-const common = (gameName, levelFlow) => {
-  let attemptCount = 3;
+const attemptCount = 3;
+
+const runApp = (gameName, levelFlow) => {
   console.log('Welcome to the Brain Games!');
   console.log(gameName);
 
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello ${name}!\n`);
 
-  while (attemptCount > 0) {
-    const { answer, correctAnswer } = levelFlow();
+  for (let i = 0; i < attemptCount; i += 1) {
+    const { question, correctAnswer } = levelFlow();
+
+    console.log(`Question: ${question}`);
+    const answer = readlineSync.question('Your answer: ');
 
     if (answer !== correctAnswer) {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'`);
@@ -17,12 +21,11 @@ const common = (gameName, levelFlow) => {
       break;
     }
     console.log('Correct!');
-    attemptCount -= 1;
-  }
 
-  if (attemptCount === 0) {
-    console.log(`Congratulations, ${name}!`);
+    if (i === attemptCount - 1) {
+      console.log(`Congratulations, ${name}!`);
+    }
   }
 };
 
-export default common;
+export default runApp;

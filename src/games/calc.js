@@ -1,15 +1,15 @@
-import readlineSync from 'readline-sync';
 import { getRandomInt, max, min } from '../utils';
-import common from '..';
+import runApp from '..';
 
-const levelFlow = () => {
-  const operations = ['+', '-', '*'];
+const descGame = 'What is the result of the expression?';
+const operations = ['+', '-', '*'];
+
+const runGameRound = () => {
   const firstNumber = getRandomInt(min, max);
   const secondNumber = getRandomInt(min, max);
   const operation = operations[getRandomInt(min, operations.length - 1)];
+  const question = `${firstNumber} ${operation} ${secondNumber}`;
 
-  console.log(`Question:  ${firstNumber} ${operation} ${secondNumber}`);
-  const answer = readlineSync.question('Your answer: ');
   let correctAnswer;
   switch (operation) {
     case '+':
@@ -24,11 +24,11 @@ const levelFlow = () => {
     default:
   }
 
-  return { answer, correctAnswer };
+  return { question, correctAnswer };
 };
 
 const runGame = () => {
-  common('What is the result of the expression?', levelFlow);
+  runApp(descGame, runGameRound);
 };
 
 export default runGame;

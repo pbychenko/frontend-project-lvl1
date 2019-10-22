@@ -1,22 +1,32 @@
-import readlineSync from 'readline-sync';
-import {
-  getRandomInt, getNod, max, min,
-} from '../utils';
-import common from '..';
+import { getRandomInt, max, min } from '../utils';
+import runApp from '..';
 
-const levelFlow = () => {
+const descGame = 'Find the greatest common divisor of given numbers.';
+
+const getGcd = (a, b) => {
+  let x = a;
+  let y = b;
+  while (x !== 0 && y !== 0) {
+    if (x > y) {
+      x %= y;
+    } else {
+      y %= x;
+    }
+  }
+  return x + y;
+};
+
+const runGameRound = () => {
   const firstNumber = getRandomInt(min, max);
   const secondNumber = getRandomInt(min, max);
+  const question = `${firstNumber} ${secondNumber}`;
+  const correctAnswer = String(getGcd(firstNumber, secondNumber));
 
-  console.log(`Question:  ${firstNumber} ${secondNumber}`);
-  const answer = readlineSync.question('Your answer: ');
-  const correctAnswer = String(getNod(firstNumber, secondNumber));
-
-  return { answer, correctAnswer };
+  return { question, correctAnswer };
 };
 
 const runGame = () => {
-  common('Find the greatest common divisor of given numbers.', levelFlow);
+  runApp(descGame, runGameRound);
 };
 
 export default runGame;
