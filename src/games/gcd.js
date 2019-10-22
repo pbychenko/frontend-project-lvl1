@@ -17,10 +17,10 @@ const getGcd = (a, b) => {
 };
 
 const runGameRound = () => {
-  const firstNumber = getRandomInt(min, max);
-  const secondNumber = getRandomInt(min, max);
-  const question = `${firstNumber} ${secondNumber}`;
-  const correctAnswer = String(getGcd(firstNumber, secondNumber));
+  const firstOperand = getRandomInt(min, max);
+  const secondOperand = getRandomInt(min, max);
+  const question = `${firstOperand} ${secondOperand}`;
+  const correctAnswer = String(getGcd(firstOperand, secondOperand));
 
   return { question, correctAnswer };
 };

@@ -5,21 +5,21 @@ const descGame = 'What is the result of the expression?';
 const operations = ['+', '-', '*'];
 
 const runGameRound = () => {
-  const firstNumber = getRandomInt(min, max);
-  const secondNumber = getRandomInt(min, max);
+  const leftOperand = getRandomInt(min, max);
+  const rightOperand = getRandomInt(min, max);
   const operation = operations[getRandomInt(min, operations.length - 1)];
-  const question = `${firstNumber} ${operation} ${secondNumber}`;
+  const question = `${leftOperand} ${operation} ${rightOperand}`;
 
   let correctAnswer;
   switch (operation) {
     case '+':
-      correctAnswer = String(firstNumber + secondNumber);
+      correctAnswer = String(leftOperand + rightOperand);
       break;
     case '-':
-      correctAnswer = String(firstNumber - secondNumber);
+      correctAnswer = String(leftOperand - rightOperand);
       break;
     case '*':
-      correctAnswer = String(firstNumber * secondNumber);
+      correctAnswer = String(leftOperand * rightOperand);
       break;
     default:
   }
