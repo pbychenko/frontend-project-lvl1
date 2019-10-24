@@ -1,10 +1,10 @@
 import { getRandomInt, max, min } from '../utils';
 import runApp from '..';
 
-const descGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (number) => {
-  if (number < 4) {
+  if (number < 2) {
     return true;
   }
 
@@ -16,7 +16,7 @@ const isPrime = (number) => {
   return true;
 };
 
-const runGameRound = () => {
+const generateRoundData = () => {
   const question = getRandomInt(min, max);
   const correctAnswer = isPrime(question) ? 'yes' : 'no';
 
@@ -24,7 +24,7 @@ const runGameRound = () => {
 };
 
 const runGame = () => {
-  runApp(descGame, runGameRound);
+  runApp(gameDescription, generateRoundData);
 };
 
 export default runGame;

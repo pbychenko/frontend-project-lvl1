@@ -1,34 +1,36 @@
 import { getRandomInt, max, min } from '../utils';
 import runApp from '..';
 
-const descGame = 'What number is missing in the progression?';
+const gameDescription = 'What number is missing in the progression?';
+const progressionLength = 5;
+
 const getProgression = (start, step) => {
-  const progressionList = [];
-  for (let i = 0; i < max; i += 1) {
-    progressionList[i] = start + step * i;
+  const progression = [];
+  for (let i = 0; i < progressionLength; i += 1) {
+    progression[i] = start + step * i;
   }
-  return progressionList;
+  return progression;
 };
 
-const getProgForGame = (list, place) => {
+const getRoundProgression = (list, position) => {
   const buff = list.slice();
-  buff[place] = '..';
+  buff[position] = '..';
   return buff.join(' ');
 };
 
-const runGameRound = () => {
+const generateRoundData = () => {
   const start = getRandomInt(min, max);
   const step = getRandomInt(min, max);
-  const askProgNumber = getRandomInt(min, max - 1);
   const progression = getProgression(start, step);
-  const question = `${getProgForGame(progression, askProgNumber)}`;
-  const correctAnswer = String(progression[askProgNumber]);
+  const questionPosition = getRandomInt(0, progression.length - 1);
+  const question = `${getRoundProgression(progression, questionPosition)}`;
+  const correctAnswer = String(progression[questionPosition]);
 
   return { question, correctAnswer };
 };
 
 const runGame = () => {
-  runApp(descGame, runGameRound);
+  runApp(gameDescription, generateRoundData);
 };
 
 export default runGame;

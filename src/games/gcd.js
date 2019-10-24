@@ -1,7 +1,7 @@
 import { getRandomInt, max, min } from '../utils';
 import runApp from '..';
 
-const descGame = 'Find the greatest common divisor of given numbers.';
+const gameDescription = 'Find the greatest common divisor of given numbers.';
 
 const getGcd = (a, b) => {
   let x = a;
@@ -16,7 +16,7 @@ const getGcd = (a, b) => {
   return x + y;
 };
 
-const runGameRound = () => {
+const generateRoundData = () => {
   const firstOperand = getRandomInt(min, max);
   const secondOperand = getRandomInt(min, max);
   const question = `${firstOperand} ${secondOperand}`;
@@ -26,7 +26,7 @@ const runGameRound = () => {
 };
 
 const runGame = () => {
-  runApp(descGame, runGameRound);
+  runApp(gameDescription, generateRoundData);
 };
 
 export default runGame;

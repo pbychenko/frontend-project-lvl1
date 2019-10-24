@@ -1,18 +1,18 @@
 import { getRandomInt, max, min } from '../utils';
 import runApp from '..';
 
-const descGame = 'Answer "yes" if the number is even, otherwise answer "no".';
-const isEven = (number) => (number % 2 === 0 ? 'yes' : 'no');
+const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
+const isEven = (number) => number % 2 === 0;
 
-const runGameRound = () => {
+const generateRoundData = () => {
   const question = getRandomInt(min, max);
-  const correctAnswer = isEven(question);
+  const correctAnswer = isEven(question) ? 'yes' : 'no';
 
   return { question, correctAnswer };
 };
 
 const runGame = () => {
-  runApp(descGame, runGameRound);
+  runApp(gameDescription, generateRoundData);
 };
 
 export default runGame;

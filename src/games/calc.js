@@ -1,10 +1,10 @@
 import { getRandomInt, max, min } from '../utils';
 import runApp from '..';
 
-const descGame = 'What is the result of the expression?';
+const gameDescription = 'What is the result of the expression?';
 const operations = ['+', '-', '*'];
 
-const runGameRound = () => {
+const generateRoundData = () => {
   const leftOperand = getRandomInt(min, max);
   const rightOperand = getRandomInt(min, max);
   const operation = operations[getRandomInt(min, operations.length - 1)];
@@ -28,7 +28,7 @@ const runGameRound = () => {
 };
 
 const runGame = () => {
-  runApp(descGame, runGameRound);
+  runApp(gameDescription, generateRoundData);
 };
 
 export default runGame;
